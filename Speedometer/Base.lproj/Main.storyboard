@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,151 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Speedometer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZRy-n5-VE5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7wu-WY-4jf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15Q-5O-pQF" customClass="MBCircularProgressBarView">
+                                <rect key="frame" x="0.0" y="662" width="414" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="3KC-nk-PYz"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="300"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDC-zN-y2Y">
+                                <rect key="frame" x="369" y="74" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="infoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3rL-76-uOC"/>
+                                </connections>
+                            </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5000" minimumValue="1000" maximumValue="50000" stepValue="2000" translatesAutoresizingMaskIntoConstraints="NO" id="lx1-GJ-kqk">
+                                <rect key="frame" x="305" y="805" width="94" height="32"/>
+                            </stepper>
+                            <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" id="sxm-AN-8BY">
+                                <rect key="frame" x="0.0" y="183" width="414" height="713"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIw-2v-CLa">
+                                        <rect key="frame" x="361" y="8" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="44A-3r-PjI"/>
+                                            <constraint firstAttribute="width" constant="45" id="SZC-5G-hJu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" image="x.circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="infoViewIsHidden:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wJD-d9-CiK"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="UI9-hI-7cL">
+                                        <rect key="frame" x="0.0" y="88" width="414" height="262"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dxm-Uj-y0A">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
+                                                <segments>
+                                                    <segment title="Map"/>
+                                                    <segment title="Satallite"/>
+                                                    <segment title="Hybrid"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="mapTypeIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="WVQ-By-aQp"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GL6-2b-JWk">
+                                                <rect key="frame" x="0.0" y="114" width="414" height="35"/>
+                                                <segments>
+                                                    <segment title="km/h"/>
+                                                    <segment title="mp/h"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="conversionIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ulr-ao-ozf"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Max Speed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYR-Yk-POX">
+                                                <rect key="frame" x="0.0" y="228" width="414" height="34"/>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMO-fq-509">
+                                        <rect key="frame" x="30" y="20" width="201" height="38"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="UI9-hI-7cL" firstAttribute="top" secondItem="lIw-2v-CLa" secondAttribute="bottom" constant="35" id="5mz-nW-gc8"/>
+                                    <constraint firstItem="UI9-hI-7cL" firstAttribute="leading" secondItem="WUN-lo-rT1" secondAttribute="leading" id="84i-cq-M46"/>
+                                    <constraint firstItem="lIw-2v-CLa" firstAttribute="leading" secondItem="jMO-fq-509" secondAttribute="trailing" constant="130" id="ExI-zR-Zmp"/>
+                                    <constraint firstItem="UI9-hI-7cL" firstAttribute="trailing" secondItem="WUN-lo-rT1" secondAttribute="trailing" id="MWe-d4-k2C"/>
+                                    <constraint firstItem="jMO-fq-509" firstAttribute="leading" secondItem="WUN-lo-rT1" secondAttribute="leading" constant="30" id="XG5-YV-BiK"/>
+                                    <constraint firstItem="WUN-lo-rT1" firstAttribute="trailing" secondItem="lIw-2v-CLa" secondAttribute="trailing" constant="8" id="ZaT-vk-9aF"/>
+                                    <constraint firstItem="UI9-hI-7cL" firstAttribute="top" secondItem="jMO-fq-509" secondAttribute="bottom" constant="30" id="htO-Bv-cGY"/>
+                                    <constraint firstItem="jMO-fq-509" firstAttribute="top" secondItem="WUN-lo-rT1" secondAttribute="top" constant="20" id="jGc-Zm-ws6"/>
+                                    <constraint firstItem="lIw-2v-CLa" firstAttribute="top" secondItem="WUN-lo-rT1" secondAttribute="top" constant="8" id="zBT-3V-7zS"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="WUN-lo-rT1"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7wu-WY-4jf" firstAttribute="leading" secondItem="udO-r6-YwM" secondAttribute="leading" id="0YQ-1p-2n0"/>
+                            <constraint firstItem="7wu-WY-4jf" firstAttribute="top" secondItem="ZRy-n5-VE5" secondAttribute="top" id="9Cz-ve-Ii4"/>
+                            <constraint firstItem="udO-r6-YwM" firstAttribute="bottom" secondItem="lx1-GJ-kqk" secondAttribute="bottom" constant="25" id="CfR-w9-0NR"/>
+                            <constraint firstItem="udO-r6-YwM" firstAttribute="trailing" secondItem="lx1-GJ-kqk" secondAttribute="trailing" constant="15" id="HRm-Fw-Cjw"/>
+                            <constraint firstItem="15Q-5O-pQF" firstAttribute="trailing" secondItem="udO-r6-YwM" secondAttribute="trailing" id="Hcd-wN-Qpj"/>
+                            <constraint firstAttribute="bottom" secondItem="7wu-WY-4jf" secondAttribute="bottom" id="Rlb-Bn-mUa"/>
+                            <constraint firstItem="7wu-WY-4jf" firstAttribute="trailing" secondItem="udO-r6-YwM" secondAttribute="trailing" id="TEz-Td-GhX"/>
+                            <constraint firstItem="15Q-5O-pQF" firstAttribute="bottom" secondItem="udO-r6-YwM" secondAttribute="bottom" id="d5K-mG-ZUo"/>
+                            <constraint firstItem="15Q-5O-pQF" firstAttribute="leading" secondItem="udO-r6-YwM" secondAttribute="leading" id="gPE-vd-4D4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="udO-r6-YwM"/>
                     </view>
+                    <connections>
+                        <outlet property="conversions" destination="GL6-2b-JWk" id="gxf-i6-z1Y"/>
+                        <outlet property="infoButton" destination="CDC-zN-y2Y" id="8LZ-2G-wEA"/>
+                        <outlet property="infoView" destination="sxm-AN-8BY" id="RuL-vl-H1L"/>
+                        <outlet property="mapType" destination="dxm-Uj-y0A" id="nxV-Vx-cT3"/>
+                        <outlet property="mapView" destination="7wu-WY-4jf" id="ztI-aP-E1D"/>
+                        <outlet property="maxSpeed" destination="aYR-Yk-POX" id="b82-p3-9ov"/>
+                        <outlet property="progressBar" destination="15Q-5O-pQF" id="Qvc-9B-DtU"/>
+                        <outlet property="zoom" destination="lx1-GJ-kqk" id="Ng3-Wl-2mc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="155.07246376811597" y="89.732142857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="x.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
