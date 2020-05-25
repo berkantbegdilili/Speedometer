@@ -6,7 +6,7 @@
 > TR: GPS ten alınan hızı kullanıcıya bar çubuğunda gösterir. Harita tipi değiştirme, hız tipi değiştirme, maksimum hız ayarlama seçenekleri mevcuttur. Normal harita,uydu görüntüsü ve trafikli uydu görüntüsü (hybrid) şeklinde harita tipleri mevcuttur.Seçilen harita tipi ve hız tipi kullanıcının varsayılanı olarak kaydedilir. Tasarım karanlık ve aydınlık moda uyumludur.
 
 #
-> Used Frameworks ; Core Location, MapKit, UIKit
+> Used Frameworks ; Core Location, MapKit, UIKit, MBCircularProgressBar
 
 # Imagery (Görüntüler)
 ![run1](https://github.com/berkantbegdilili/Speedometer/blob/master/img/darkMode.png)
